@@ -34,6 +34,8 @@ const Footer = () => {
       >
         <EmailTwoToneIcon onClick={SendMail}/>
       </IconButton>
+      <br />
+      This website is built on React, Next.js, and Material-UI.
     </footer>
   );
 }
