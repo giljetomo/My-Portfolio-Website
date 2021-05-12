@@ -1,8 +1,15 @@
+import Head from 'next/head'
+
 const Contact = () => {
   return (
-    <div className="contact">
-      <h2>Contact</h2>
-    </div>
+    <>
+    <Head>
+      <title>Gil's Contact</title>
+    </Head>
+      <div className="contact">
+        <h2>Contact</h2>
+      </div>
+    </>
    );
 }
  
