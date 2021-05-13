@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import About from '../components/About'
 
 export default function Home() {
   return (
@@ -9,7 +8,7 @@ export default function Home() {
       <title>About Gil</title>
     </Head>
       <div>
-        <h1>About</h1>
+        <About />
       </div>
     </>
   )
