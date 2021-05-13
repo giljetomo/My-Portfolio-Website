@@ -51,3 +51,26 @@ footer {
   font-family: 'Play', sans-serif;
   text-align: center;
 }
+.paperSwift {
+  font-size: 40px;
+  font-family: 'Play', sans-serif;
+  padding-top: 40px;
+}
+
+.paperObjC {
+  font-size: 14px;
+  font-family: 'Play', sans-serif;
+  padding-top: 19px;
+}
+
+.java {
+  font-size: 22px;
+  font-family: 'Play', sans-serif;
+  padding-top: 25px;
+}
+
+.c {
+  font-size: 35px;
+  font-family: 'Play', sans-serif;
+  padding-top: 20px;
+}
