@@ -6,7 +6,10 @@ const About = () => {
 
   return ( 
     <div className="about">
-      <h1>I'm an iOS developer based in Vancouver. I enjoy building apps and teaching how to create them.</h1>
+      <h1>
+        I'm an iOS developer based in Vancouver.<br />
+        I enjoy building mobile apps and teaching how to create them.
+      </h1><br /><br />
       <Grid 
         container
         spacing={2}
@@ -16,8 +19,10 @@ const About = () => {
         <Grid item>
           <Paper className="paperSwift"
             style={{
-              height: 80,
-              width: 120,
+              height: 90,
+              width: 160,
+              color: '#f4f4f9',
+              background: 'linear-gradient(315deg, #7fcec5 0%, #14557b 74%)'
             }}>
             Swift
           </Paper>
@@ -28,15 +33,20 @@ const About = () => {
             style={{
               height: 35,
               width: 100,
+              color: '#f4f4f9',
+              background: 'linear-gradient(315deg, #7fcec5 0%, #14557b 74%)'
             }}>
             Objective-C
           </Paper>
           <br />
         <Grid item>
           <Paper className="java"
+          color="primary"
             style={{
               height: 55,
               width: 100,
+              color: '#f4f4f9',
+              background: 'linear-gradient(315deg, #7fcec5 0%, #14557b 74%)'
             }}>
             Java
           </Paper>
@@ -47,7 +57,9 @@ const About = () => {
             <Paper className="c"
               style={{
                 height: 60,
-                width: 60,
+                width: 65,
+                color: '#f4f4f9',
+                background: 'linear-gradient(315deg, #7fcec5 0%, #14557b 74%)'
             }}>
               C
             </Paper>
