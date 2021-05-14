@@ -14,7 +14,6 @@ const About = () => {
         container
         spacing={2}
         justify="center"
-        // direction="row"
         alignItems="center">
         <Grid item>
           <Paper className="paperSwift"
@@ -41,7 +40,7 @@ const About = () => {
           <br />
         <Grid item>
           <Paper className="java"
-          color="primary"
+            color="primary"
             style={{
               height: 55,
               width: 100,
@@ -56,7 +55,7 @@ const About = () => {
         <Grid item>
             <Paper className="c"
               style={{
-                height: 60,
+                height: 50,
                 width: 65,
                 color: '#f4f4f9',
                 background: 'linear-gradient(315deg, #7fcec5 0%, #14557b 74%)'
@@ -64,7 +63,6 @@ const About = () => {
               C
             </Paper>
         </Grid>
-
       </Grid>
     </div>
    );
