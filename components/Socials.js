@@ -22,12 +22,12 @@ const Socials = () => {
       <IconButton
         color="primary"
       >
-        <GitHubIcon onClick={event => window.open('https://github.com/giljetomo')} />
+        <GitHubIcon onClick={event => window.open('https://bit.ly/3fa8bWY')} />
        </IconButton>
       <IconButton
       color="primary"
       >
-        <LinkedInIcon onClick={event => window.open('https://www.linkedin.com/in/gmjetomo')} />
+        <LinkedInIcon onClick={event => window.open('https://bit.ly/3eLyh3L')} />
       </IconButton>
       <IconButton
         color="primary"

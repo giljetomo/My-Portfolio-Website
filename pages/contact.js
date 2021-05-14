@@ -17,7 +17,7 @@ const Contact = () => {
           >
           <Card
             style={{
-            width: 450,
+            width: 400,
             height: 200,
             background: 'linear-gradient(to right, #6999d8 6%, #fafafa 100%)'
             }}>
