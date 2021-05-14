@@ -11,7 +11,7 @@ h1 {
   line-height: 45px;
 }
 a {
-  color: #5272B7;
+  color: #4868AD;
   text-decoration: none;
 }
 .content {
@@ -78,4 +78,10 @@ footer {
   font-size: 32px;
   font-family: 'Play', sans-serif;
   padding-top: 10px;
+}
+
+.contact {
+  font-size: 18px;
+  line-height: 28px;
+  color: #0A235C;
 }
