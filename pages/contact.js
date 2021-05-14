@@ -26,13 +26,13 @@ const Contact = () => {
             >
             <Card
               style={{
-              width: 400,
-              height: 200,
-              background: 'linear-gradient(to right, #6999d8 6%, #fafafa 100%)'
+                width: 400,
+                height: 200,
+                background: 'linear-gradient(to right, #6999d8 6%, #fafafa 100%)'
               }}>
               <CardHeader 
-              title="Gil Jetomo"
-              subheader="Software Developer - iOS"
+                title="Gil Jetomo"
+                subheader="Software Developer - iOS"
               >
               </CardHeader>
               <CardContent className="contact">
