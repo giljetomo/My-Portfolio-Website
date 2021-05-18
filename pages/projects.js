@@ -11,9 +11,10 @@ const Projects = () => {
       <div className="projects">
         <h2>Projects</h2>
         <Image 
+          className="img"
           src={img} 
-          width={290}
-          height={628}
+          width={250}
+          height={541}
           layout="fixed"/>
       </div>
     </>
