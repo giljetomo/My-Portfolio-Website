@@ -7,7 +7,6 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Typography from '@material-ui/core/Typography';
 import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 
-import Image from 'next/image'
 import addRecipe1 from './../public/add-recipe-1.png'
 import addRecipe2 from './../public/add-recipe-2.png'
 import profile1 from './../public/profile-1.png'
@@ -17,49 +16,31 @@ import recipeList1 from './../public/recipe-list-1.png'
 import recipeList2 from './../public/recipe-list-2.png'
 
 const images = [
-  { img: addRecipe2 },
-  { img: addRecipe1 },
-  { img: recipeList1 },
-  { img: recipeList2 },
-  { img: profile1 },
-  { img: profile2 },
-  { img: profile3 },
+  { img: addRecipe2, title: 'Make a New Recipe' },
+  { img: addRecipe1, title: 'Add and Update Ingredients' },
+  { img: recipeList1, title: 'Review Your Recipes' },
+  { img: recipeList2, title: "Update a Recipe" },
+  { img: profile1, title: "Make Your Own Profile" },
+  { img: profile2, title: "Make Your Own Profile" },
+  { img: profile3, title: "Update Your Statistics"},
 ];
 
 function getCols(screenWidth) {
-  if (isWidthUp('lg', screenWidth)) {
-    return 2.8;
-  }
-
-  if (isWidthUp('md', screenWidth)) {
-    return 2.5;
-  }
-
-  return 1.3;
+  if (isWidthUp('lg', screenWidth)) { return 2.8 }
+  if (isWidthUp('md', screenWidth)) { return 2.5 }
+  return 1.3
 }
 
 function getWidth(screenWidth) {
-  if (isWidthUp('lg', screenWidth)) {
-    return 800;
-  }
-
-  if (isWidthUp('md', screenWidth)) {
-    return 600;
-  }
-
-  return 370;
+  if (isWidthUp('lg', screenWidth)) { return 800 }
+  if (isWidthUp('md', screenWidth)) { return 600 }
+  return 370
 }
 
 function getHeight(screenWidth) {
-  if (isWidthUp('lg', screenWidth)) {
-    return 610;
-  }
-
-  if (isWidthUp('md', screenWidth)) {
-    return 500;
-  }
-
-  return 600;
+  if (isWidthUp('lg', screenWidth)) { return 610 }
+  if (isWidthUp('md', screenWidth)) { return 500 }
+  return 600
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -72,13 +53,11 @@ const useStyles = makeStyles((theme) => ({
   },
   gridList: {
     flexWrap: 'nowrap',
-    // width: {tileWidth},
-    // height: 433,
     // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
     transform: 'translateZ(0)',
   },
   title: {
-    color: theme.palette.primary.light,
+    color: theme.palette.primary,
   },
   titleBar: {
     background:
