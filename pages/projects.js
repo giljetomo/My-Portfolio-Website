@@ -34,7 +34,8 @@ function getSizes(screenWidth) {
       col: 2.8, 
       tileWidth: 800,
       gridHeight: 610,
-      fontSize: 25
+      fontSizeHeader: 30,
+      fontSizeBody: 23
     }
   }
   if (isWidthUp('md', screenWidth)) {
@@ -42,14 +43,16 @@ function getSizes(screenWidth) {
       col: 2.5, 
       tileWidth: 600,
       gridHeight: 500,
-      fontSize: 23
+      fontSizeHeader: 27,
+      fontSizeBody: 21
     }
   }
   return {
     col: 1.3, 
     tileWidth: 370,
     gridHeight: 600,
-    fontSize: 18
+    fontSizeHeader: 23,
+    fontSizeBody: 18
   }
 }
 
@@ -84,14 +87,14 @@ const Projects = (props) => {
     <Head>
       <title>Gil's Projects</title>
     </Head>
-      <div className="projects">
-        <h2 className="projects-h2">Recipes and Calories Manager</h2>
-          <div className="project-desc" style={{ fontSize: values.fontSize }}>
-          <Box lineHeight={1.7}>
-            <p>With this app you can concoct any dish that is tailored to your personal daily calorie needs.
-              <br />The recipes are organized in a list as meals: breakfast, lunch, snack, and dinner.
-              <br />You can regularly update your profile's statistics to keep track of your BMI to keep it within normal level.</p>
-          </Box>
+      <div className="project-desc" style={{ fontSize: values.fontSizeHeader }}>
+        <Box>Recipes and Calories Manager</Box>
+          <div style={{ fontSize: values.fontSizeBody }}>
+            <Box lineHeight={1.7}>
+              <p>With this app you can concoct any dish that is tailored to your personal daily calorie needs.
+                <br />The recipes are organized in a list as meals: breakfast, lunch, snack, and dinner.
+                <br />You can regularly update your profile's statistics to keep track of your BMI to keep it within normal level.</p>
+            </Box>
           </div>
       </div>
       <div className={classes.root}>
