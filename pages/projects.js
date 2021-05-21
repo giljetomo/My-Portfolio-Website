@@ -1,37 +1,96 @@
 import Head from 'next/head'
 import React from 'react';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
-import grey from '@material-ui/core/colors/grey';
+import { makeStyles } from '@material-ui/core/styles';
+import GridList from '@material-ui/core/GridList';
+import GridListTile from '@material-ui/core/GridListTile';
+import GridListTileBar from '@material-ui/core/GridListTileBar';
 import Typography from '@material-ui/core/Typography';
+import withWidth, { isWidthUp } from '@material-ui/core/withWidth';
 
 import Image from 'next/image'
 import addRecipe1 from './../public/add-recipe-1.png'
 import addRecipe2 from './../public/add-recipe-2.png'
-import { BorderColor } from '@material-ui/icons';
+import profile1 from './../public/profile-1.png'
+import profile2 from './../public/profile-2.png'
+import profile3 from './../public/profile-3.png'
+import recipeList1 from './../public/recipe-list-1.png'
+import recipeList2 from './../public/recipe-list-2.png'
 
-const grey900 = grey["900"];
+const images = [
+  { img: addRecipe2 },
+  { img: addRecipe1 },
+  { img: recipeList1 },
+  { img: recipeList2 },
+  { img: profile1 },
+  { img: profile2 },
+  { img: profile3 },
+];
+
+function getCols(screenWidth) {
+  if (isWidthUp('lg', screenWidth)) {
+    return 2.8;
+  }
+
+  if (isWidthUp('md', screenWidth)) {
+    return 2.5;
+  }
+
+  return 1.3;
+}
+
+function getWidth(screenWidth) {
+  if (isWidthUp('lg', screenWidth)) {
+    return 800;
+  }
+
+  if (isWidthUp('md', screenWidth)) {
+    return 600;
+  }
+
+  return 370;
+}
+
+function getHeight(screenWidth) {
+  if (isWidthUp('lg', screenWidth)) {
+    return 610;
+  }
+
+  if (isWidthUp('md', screenWidth)) {
+    return 500;
+  }
+
+  return 600;
+}
+
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    borderRadius: 10,
+    flexWrap: 'wrap',
+    justifyContent: 'space-around',
+    overflow: 'hidden',
+    // backgroundColor: theme.palette.background.paper,
   },
-  content: {
-    flex: '1 0 auto',
+  gridList: {
+    flexWrap: 'nowrap',
+    // width: {tileWidth},
+    // height: 433,
+    // Promote the list into his own layer on Chrome. This cost memory but helps keeping high FPS.
+    transform: 'translateZ(0)',
   },
-  cover: {
-    width: 250,
-    height: 541,
-    borderRadius: 10,
-    borderColor: grey900,
+  title: {
+    color: theme.palette.primary.light,
+  },
+  titleBar: {
+    background:
+      'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
   },
 }));
 
-const Projects = () => {
+const Projects = (props) => {
   const classes = useStyles();
-  const theme = useTheme();
+  const cols = getCols(props.width); 
+  const tileWidth = getWidth(props.width)
+  const gridHeight = getHeight(props.width)
 
   return (
     <>
@@ -45,32 +104,36 @@ const Projects = () => {
           <br />The recipes are organized in a list as meals: breakfast, lunch, snack, and dinner.
           <br />You can regularly update your profile's statistics to keep track of your BMI to keep it within normal level.</p>
         </div>
-         {/* <Image 
-          className="img"
-          src={img} 
-          width={250}
-          height={541}
-          layout="fixed"/> */}
       </div>
-      <Card className={classes.root}>
-        <CardMedia
-          className={classes.cover}
-          image={addRecipe1}
-        />
-         <CardContent className={classes.content}>
-        </CardContent>
-      </Card>
-      <br />
-      <Card className={classes.root}>
-        <CardContent className={classes.content}>
-        </CardContent>
-        <CardMedia
-          className={classes.cover}
-          image={addRecipe2}
-        />
-      </Card>
+      <div className={classes.root}>
+      <GridList className={classes.gridList} 
+                cols={cols} 
+                cellHeight={gridHeight} 
+                spacing={15}
+                style={{
+                  width: tileWidth
+                }}>
+        {images.map((tile) => (
+          <GridListTile key={tile.img}>
+            <img src={tile.img} alt={tile.title} />
+            <GridListTileBar
+              title={tile.title}
+              classes={{
+                root: classes.titleBar,
+                title: classes.title,
+              }}
+              // actionIcon={
+              //   <IconButton aria-label={`star ${tile.title}`}>
+              //     <StarBorderIcon className={classes.title} />
+              //   </IconButton>
+              // }
+            />
+          </GridListTile>
+        ))}
+      </GridList>
+    </div>
     </>
    );
 }
  
-export default Projects;
+export default withWidth()(Projects);

@@ -118,3 +118,22 @@ footer {
     font-size: 20px;
   }
   }
+
+  .card-desc {
+    line-height: 21px;
+    margin: auto;
+    width: 90%;
+    text-align: left;
+  }
+  
+  @media screen and (max-width: 600px) {
+  .card-desc {
+    font-size: 14px;
+  }
+  }
+  
+  @media screen and (min-width: 601px) {
+    .card-desc {
+      font-size: 17px;
+    }
+    }
