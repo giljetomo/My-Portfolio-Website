@@ -105,7 +105,7 @@ footer {
 }
 
 .project-desc {
-  line-height: 30px;
+  /* line-height: 30px; */
   margin: auto;
   width: 97%;
   text-align: center;

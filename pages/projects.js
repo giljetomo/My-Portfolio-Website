@@ -28,28 +28,29 @@ const images = [
   { img: addRecipe, title: "Demo"},
 ];
 
-function getCols(screenWidth) {
-  if (isWidthUp('lg', screenWidth)) { return 2.8 }
-  if (isWidthUp('md', screenWidth)) { return 2.5 }
-  return 1.3
-}
-
-function getWidth(screenWidth) {
-  if (isWidthUp('lg', screenWidth)) { return 800 }
-  if (isWidthUp('md', screenWidth)) { return 600 }
-  return 370
-}
-
-function getHeight(screenWidth) {
-  if (isWidthUp('lg', screenWidth)) { return 610 }
-  if (isWidthUp('md', screenWidth)) { return 500 }
-  return 600
-}
-
-function getFontSize(screenWidth) {
-  if (isWidthUp('lg', screenWidth)) { return 25 }
-  if (isWidthUp('md', screenWidth)) { return 23 }
-  return 18
+function getSizes(screenWidth) {
+  if (isWidthUp('lg', screenWidth)) {
+    return {
+      col: 2.8, 
+      tileWidth: 800,
+      gridHeight: 610,
+      fontSize: 25
+    }
+  }
+  if (isWidthUp('md', screenWidth)) {
+    return {
+      col: 2.5, 
+      tileWidth: 600,
+      gridHeight: 500,
+      fontSize: 23
+    }
+  }
+  return {
+    col: 1.3, 
+    tileWidth: 370,
+    gridHeight: 600,
+    fontSize: 18
+  }
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -76,10 +77,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Projects = (props) => {
   const classes = useStyles();
-  const cols = getCols(props.width); 
-  const tileWidth = getWidth(props.width)
-  const gridHeight = getHeight(props.width)
-  const fontSize = getFontSize(props.width)
+  const values = getSizes(props.width);
 
   return (
     <>
@@ -88,44 +86,35 @@ const Projects = (props) => {
     </Head>
       <div className="projects">
         <h2 className="projects-h2">Recipes and Calories Manager</h2>
-        <div className="project-desc"
-          style={{
-            fontSize: fontSize
-          }}
-        >
-        <Box lineHeight={1.7}>
-        <p>With this app you can concoct any dish that is tailored to your personal daily calorie needs.
-          <br />The recipes are organized in a list as meals: breakfast, lunch, snack, and dinner.
-          <br />You can regularly update your profile's statistics to keep track of your BMI to keep it within normal level.</p>
+          <div className="project-desc" style={{ fontSize: values.fontSize }}>
+          <Box lineHeight={1.7}>
+            <p>With this app you can concoct any dish that is tailored to your personal daily calorie needs.
+              <br />The recipes are organized in a list as meals: breakfast, lunch, snack, and dinner.
+              <br />You can regularly update your profile's statistics to keep track of your BMI to keep it within normal level.</p>
           </Box>
-        </div>
+          </div>
       </div>
       <div className={classes.root}>
-      <GridList className={classes.gridList} 
-                cols={cols} 
-                cellHeight={gridHeight} 
-                spacing={15}
-                style={{
-                  width: tileWidth
-                }}>
-        {images.map((tile) => (
-          <GridListTile key={tile.img}>
-            <img src={tile.img} alt={tile.title} />
-            <GridListTileBar
-              title={tile.title}
-              classes={{
-                root: classes.titleBar,
-                title: classes.title,
-              }}
-              // actionIcon={
-              //   <IconButton aria-label={`star ${tile.title}`}>
-              //     <StarBorderIcon className={classes.title} />
-              //   </IconButton>
-              // }
-            />
-          </GridListTile>
-        ))}
-      </GridList>
+        <GridList className={classes.gridList} 
+                  cols={values.col} 
+                  cellHeight={values.gridHeight} 
+                  spacing={15}
+                  style={{
+                    width: values.tileWidth
+                  }}>
+          {images.map((tile) => (
+            <GridListTile key={tile.img}>
+              <img src={tile.img} alt={tile.title} />
+              <GridListTileBar
+                title={tile.title}
+                classes={{
+                  root: classes.titleBar,
+                  title: classes.title,
+                }}
+              />
+            </GridListTile>
+          ))}
+        </GridList>
     </div>
     </>
    );
