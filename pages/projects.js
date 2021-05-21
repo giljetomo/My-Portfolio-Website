@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import React from 'react';
+import Box from '@material-ui/core/Box';
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
@@ -14,6 +15,7 @@ import profile2 from './../public/profile-2.png'
 import profile3 from './../public/profile-3.png'
 import recipeList1 from './../public/recipe-list-1.png'
 import recipeList2 from './../public/recipe-list-2.png'
+import addRecipe from './../public/addRecipe.gif'
 
 const images = [
   { img: addRecipe2, title: 'Make a New Recipe' },
@@ -23,6 +25,7 @@ const images = [
   { img: profile1, title: "Make Your Own Profile" },
   { img: profile2, title: "Make Your Own Profile" },
   { img: profile3, title: "Update Your Statistics"},
+  { img: addRecipe, title: "Demo"},
 ];
 
 function getCols(screenWidth) {
@@ -41,6 +44,12 @@ function getHeight(screenWidth) {
   if (isWidthUp('lg', screenWidth)) { return 610 }
   if (isWidthUp('md', screenWidth)) { return 500 }
   return 600
+}
+
+function getFontSize(screenWidth) {
+  if (isWidthUp('lg', screenWidth)) { return 25 }
+  if (isWidthUp('md', screenWidth)) { return 23 }
+  return 18
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -70,6 +79,7 @@ const Projects = (props) => {
   const cols = getCols(props.width); 
   const tileWidth = getWidth(props.width)
   const gridHeight = getHeight(props.width)
+  const fontSize = getFontSize(props.width)
 
   return (
     <>
@@ -78,10 +88,16 @@ const Projects = (props) => {
     </Head>
       <div className="projects">
         <h2 className="projects-h2">Recipes and Calories Manager</h2>
-        <div className="project-desc">
+        <div className="project-desc"
+          style={{
+            fontSize: fontSize
+          }}
+        >
+        <Box lineHeight={1.7}>
         <p>With this app you can concoct any dish that is tailored to your personal daily calorie needs.
           <br />The recipes are organized in a list as meals: breakfast, lunch, snack, and dinner.
           <br />You can regularly update your profile's statistics to keep track of your BMI to keep it within normal level.</p>
+          </Box>
         </div>
       </div>
       <div className={classes.root}>
