@@ -6,10 +6,10 @@ const About = () => {
 
   return ( 
     <div className="about">
-      <h1>
+      <h2>
         I'm an iOS developer based in Vancouver.<br />
         I enjoy building mobile apps and teaching how to create them.
-      </h1><br /><br />
+      </h2><br /><br />
       <Grid 
         container
         spacing={2}

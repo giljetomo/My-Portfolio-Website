@@ -11,6 +11,11 @@ h1 {
   flex-grow: 1;
   font-family: 'Play', sans-serif;
 }
+h2 {
+  flex-grow: 1;
+  font-family: 'Play', sans-serif;
+  line-height: 30px;
+}
 a {
   color: #4868AD;
   text-decoration: none;
