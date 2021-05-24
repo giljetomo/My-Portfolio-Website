@@ -88,7 +88,7 @@ const Projects = (props) => {
       <title>Gil's Projects</title>
     </Head>
       <div className="project-desc" style={{ fontSize: values.fontSizeHeader }}>
-        <Box>Recipes and Calories Manager</Box>
+        <Box><h4>Recipes and Calories Manager</h4></Box>
           <div style={{ fontSize: values.fontSizeBody }}>
             <Box lineHeight={1.7}>
               <p>With this app you can concoct any dish that is tailored to your personal daily calorie needs.
